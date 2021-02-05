@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <Tasks v-bind:tasks="tasks" />
+    <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   name: "App",
   components: {
     Header,
-    Tasks
+    Tasks,
   },
   data() {
     return {
@@ -21,20 +21,25 @@ export default {
         {
           id: 1,
           title: "Take a Shower",
-          completed: false
+          completed: false,
         },
         {
           id: 2,
           title: "Wash the dishes",
-          completed: true
+          completed: true,
         },
         {
           id: 3,
           title: "Take out the trash",
-          completed: false
-        }
-      ]
+          completed: false,
+        },
+      ],
     };
+  },
+  methods: {
+    deleteTask(id) {
+      this.tasks = this.tasks.filter(task => task.id !== id);
+    }
   }
 };
 </script>

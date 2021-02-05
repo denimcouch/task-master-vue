@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="task-list" v-bind:key="task" v-for="task in tasks">
-      <Task v-bind:task="task" />
+    <div class="task-list" v-bind:key="task.id" v-for="task in tasks">
+      <Task v-bind:task="task" v-on:del-task="$emit('del-task', task.id)" />
     </div>
   </div>
 </template>
