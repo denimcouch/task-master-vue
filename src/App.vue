@@ -16,37 +16,27 @@ export default {
   components: {
     Header,
     AddTask,
-    Tasks
+    Tasks,
   },
   data() {
     return {
-      tasks: [
-        {
-          id: 1,
-          title: "Take a Shower",
-          completed: false
-        },
-        {
-          id: 2,
-          title: "Wash the dishes",
-          completed: true
-        },
-        {
-          id: 3,
-          title: "Take out the trash",
-          completed: false
-        }
-      ]
+      tasks: [],
     };
   },
   methods: {
     deleteTask(id) {
-      this.tasks = this.tasks.filter(task => task.id !== id);
+      this.tasks = this.tasks.filter((task) => task.id !== id);
     },
     addTask(newTask) {
       console.log(newTask);
-      this.tasks = [...this.tasks, newTask]
+      this.tasks = [...this.tasks, newTask];
     }
+  },
+  created() {
+    fetch("http://localhost:3000/tasks")
+    .then(res => res.json())
+    .then(tasks => this.tasks = tasks)
+    .catch(err => console.log(err));
   }
 };
 </script>

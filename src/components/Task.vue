@@ -16,7 +16,6 @@ export default {
   props: ["task"],
   methods: {
     markComplete() {
-      console.log("I'm complete!");
       this.task.completed = !this.task.completed;
     }
   }
