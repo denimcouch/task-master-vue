@@ -6,24 +6,19 @@
       "completed": true
     },
     {
-      "id": 2,
-      "title": "Do the dishes",
-      "completed": true
-    },
-    {
-      "id": 3,
-      "title": "Walk the dog",
-      "completed": false
-    },
-    {
       "id": 4,
       "title": "Cook dinner",
       "completed": false
     },
     {
-      "title": "Go on a run",
+      "title": "Eat lunch",
       "completed": false,
-      "id": 5
+      "id": 6
+    },
+    {
+      "title": "Hang with tha boiz",
+      "completed": false,
+      "id": 7
     }
   ]
 }
