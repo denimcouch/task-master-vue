@@ -45,6 +45,7 @@ form {
 input[type="text"] {
   flex: 5;
   padding: 5px;
+  outline-color: #22b341;
 }
 
 input[type="submit"] {
