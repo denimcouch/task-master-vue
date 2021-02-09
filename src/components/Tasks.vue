@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Task from './Task';
+import Task from "./Task";
 
 export default {
   name: "Tasks",
@@ -15,7 +15,7 @@ export default {
   components: {
     Task
   }
-}
+};
 </script>
 
 <style>

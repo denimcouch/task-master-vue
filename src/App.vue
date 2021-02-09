@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <AddTask v-on:add-task="addTask" />
     <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask" />
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
 
 export default {
   name: "App",
   components: {
     Header,
-    Tasks,
+    AddTask,
+    Tasks
   },
   data() {
     return {
@@ -21,24 +24,28 @@ export default {
         {
           id: 1,
           title: "Take a Shower",
-          completed: false,
+          completed: false
         },
         {
           id: 2,
           title: "Wash the dishes",
-          completed: true,
+          completed: true
         },
         {
           id: 3,
           title: "Take out the trash",
-          completed: false,
-        },
-      ],
+          completed: false
+        }
+      ]
     };
   },
   methods: {
     deleteTask(id) {
       this.tasks = this.tasks.filter(task => task.id !== id);
+    },
+    addTask(newTask) {
+      console.log(newTask);
+      this.tasks = [...this.tasks, newTask]
     }
   }
 };
@@ -71,5 +78,31 @@ h4,
 h5,
 h6 {
   line-height: 1.3;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:focus {
+  outline-color: transparent;
+}
+
+.btn--delete {
+  background: red;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgb(126, 0, 0);
+  text-transform: none;
 }
 </style>

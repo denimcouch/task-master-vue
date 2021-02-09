@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <h1 class="title title--light">
-      <span class="title__text--primary ">Task</span> Master
+      <span class="title__text--primary ">Task</span>Master
     </h1>
   </header>
 </template>
@@ -27,7 +27,7 @@ export default {
 }
 
 .title__text--primary {
-  color: #1e8e36;
+  color: #22b341;
 }
 
 .title--light {
