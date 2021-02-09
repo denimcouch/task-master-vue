@@ -20,37 +20,37 @@ export default {
   components: {
     Header,
     AddTask,
-    Tasks,
+    Tasks
   },
   data() {
     return {
-      tasks: [],
+      tasks: []
     };
   },
   methods: {
     deleteTask(id) {
       fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" });
-      this.tasks = this.tasks.filter((task) => task.id !== id);
+      this.tasks = this.tasks.filter(task => task.id !== id);
     },
     addTask(newTask) {
       const taskOptions = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          Accept: "application/json"
         },
-        body: JSON.stringify(newTask),
+        body: JSON.stringify(newTask)
       };
       fetch("http://localhost:3000/tasks", taskOptions)
-        .then((res) => res.json())
-        .then((task) => (this.tasks = [...this.tasks, task]));
+        .then(res => res.json())
+        .then(task => (this.tasks = [...this.tasks, task]));
     },
     editTask(task) {
       const cleanTask = {
         id: task.id,
         title: task.title,
         completed: task.completed
-      }
+      };
       const taskOptions = {
         method: "PATCH",
         headers: {
@@ -58,17 +58,18 @@ export default {
           Accept: "application/json"
         },
         body: JSON.stringify(cleanTask)
-      }
-      fetch(`http://localhost:3000/tasks/${task.id}`, taskOptions)
-      .then(res => console.log(res))
+      };
+      fetch(`http://localhost:3000/tasks/${task.id}`, taskOptions).then(res =>
+        console.log(res)
+      );
     }
   },
   created() {
     fetch("http://localhost:3000/tasks")
-      .then((res) => res.json())
-      .then((tasks) => (this.tasks = tasks))
-      .catch((err) => console.log(err));
-  },
+      .then(res => res.json())
+      .then(tasks => (this.tasks = tasks))
+      .catch(err => console.log(err));
+  }
 };
 </script>
 
