@@ -2,7 +2,11 @@
   <div id="app">
     <Header />
     <AddTask v-on:add-task="addTask" />
-    <Tasks v-bind:tasks="tasks" v-on:del-task="deleteTask" />
+    <Tasks
+      v-bind:tasks="tasks"
+      v-on:del-task="deleteTask"
+      v-on:edit-task="editTask"
+    />
   </div>
 </template>
 
@@ -25,30 +29,46 @@ export default {
   },
   methods: {
     deleteTask(id) {
-      fetch(`http://localhost:3000/tasks/${id}`, {method: "DELETE"})
+      fetch(`http://localhost:3000/tasks/${id}`, { method: "DELETE" });
       this.tasks = this.tasks.filter((task) => task.id !== id);
     },
     addTask(newTask) {
-      console.log(newTask);
       const taskOptions = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
+          Accept: "application/json",
         },
-        body: JSON.stringify(newTask)
+        body: JSON.stringify(newTask),
       };
       fetch("http://localhost:3000/tasks", taskOptions)
-      .then(res => res.json())
-      .then(task => this.tasks = [...this.tasks, task])
+        .then((res) => res.json())
+        .then((task) => (this.tasks = [...this.tasks, task]));
+    },
+    editTask(task) {
+      const cleanTask = {
+        id: task.id,
+        title: task.title,
+        completed: task.completed
+      }
+      const taskOptions = {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(cleanTask)
+      }
+      fetch(`http://localhost:3000/tasks/${task.id}`, taskOptions)
+      .then(res => console.log(res))
     }
   },
   created() {
     fetch("http://localhost:3000/tasks")
-    .then(res => res.json())
-    .then(tasks => this.tasks = tasks)
-    .catch(err => console.log(err));
-  }
+      .then((res) => res.json())
+      .then((tasks) => (this.tasks = tasks))
+      .catch((err) => console.log(err));
+  },
 };
 </script>
 

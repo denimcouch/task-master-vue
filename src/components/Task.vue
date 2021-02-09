@@ -17,6 +17,7 @@ export default {
   methods: {
     markComplete() {
       this.task.completed = !this.task.completed;
+      this.$emit("edit-task", this.task);
     }
   }
 };
