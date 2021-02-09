@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="form-container">
     <form @submit.prevent="addTask">
       <input
         type="text"
@@ -38,6 +38,8 @@ export default {
 <style>
 form {
   display: flex;
+  max-width: 1100px;
+  margin: auto;
 }
 
 input[type="text"] {

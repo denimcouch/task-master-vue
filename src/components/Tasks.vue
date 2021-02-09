@@ -25,6 +25,7 @@ export default {
 <style>
 .container {
   max-width: 1100px;
+  margin: auto;
 }
 .task-list {
   display: flex;
