@@ -1,4 +1,6 @@
-# task-master
+# TaskMaster  
+
+TaskMaster is a to-do list app built using Vue. I built it to familiarize myself with Vue.
 
 ## Project setup
 ```
