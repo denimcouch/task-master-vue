@@ -1,20 +1,24 @@
 {
   "tasks": [
     {
-      "id":1,
-      "content": "Take out the trash"
+      "id": 1,
+      "title": "Take out the trash",
+      "completed": true
     },
     {
-      "id":2,
-      "content": "Do the dishes"
+      "id": 2,
+      "title": "Do the dishes",
+      "completed": true
     },
     {
-      "id":3,
-      "content": "Walk the dog"
+      "id": 3,
+      "title": "Walk the dog",
+      "completed": false
     },
     {
-      "id":4,
-      "content": "Cook dinner"
+      "id": 4,
+      "title": "Cook dinner",
+      "completed": false
     }
   ]
 }

@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="task-list" v-bind:key="task.id" v-for="task in tasks">
-      <Task v-bind:task="task" v-on:del-task="$emit('del-task', task.id)" />
+      <Task v-bind:task="task" v-on:del-task="$emit('del-task', task.id)" v-on:edit-task="$emit('edit-task', task)" />
     </div>
   </div>
 </template>
 
 <script>
-import Task from './Task';
+import Task from "./Task";
 
 export default {
   name: "Tasks",
@@ -15,7 +15,7 @@ export default {
   components: {
     Task
   }
-}
+};
 </script>
 
 <style>
