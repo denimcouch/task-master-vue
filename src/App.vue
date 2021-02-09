@@ -29,7 +29,17 @@ export default {
     },
     addTask(newTask) {
       console.log(newTask);
-      this.tasks = [...this.tasks, newTask];
+      const taskOptions = {
+        method:"POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(newTask)
+      };
+      fetch("http://localhost:3000/tasks", taskOptions)
+      .then(res => res.json())
+      .then(task => this.tasks = [...this.tasks, task])
     }
   },
   created() {

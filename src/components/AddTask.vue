@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import {v4 as uuidv4 } from 'uuid';
-
 export default {
   name: "AddTask",
   data() {
@@ -25,7 +23,6 @@ export default {
   methods: {
     addTask() {
       const newTask = {
-        id: uuidv4(),
         title: this.title,
         completed: false
       };
