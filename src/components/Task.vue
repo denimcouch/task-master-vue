@@ -43,6 +43,7 @@ export default {
   height: 30px;
   width: 30px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .checked {

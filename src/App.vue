@@ -105,6 +105,7 @@ h6 {
 .btn {
   display: inline-block;
   border: none;
+  border-radius: 5px;
   background: #555;
   color: #fff;
   padding: 0.5rem 1.5rem;
@@ -124,7 +125,7 @@ h6 {
   background: red;
   font-size: 1.4rem;
   font-weight: 700;
-  color: rgb(126, 0, 0);
+  color: #7e0000;
   text-transform: none;
 }
 </style>
