@@ -25,12 +25,13 @@ export default {
   },
   methods: {
     deleteTask(id) {
+      fetch(`http://localhost:3000/tasks/${id}`, {method: "DELETE"})
       this.tasks = this.tasks.filter((task) => task.id !== id);
     },
     addTask(newTask) {
       console.log(newTask);
       const taskOptions = {
-        method:"POST",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json"

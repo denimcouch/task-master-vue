@@ -19,11 +19,6 @@
       "id": 4,
       "title": "Cook dinner",
       "completed": false
-    },
-    {
-      "title": "Go on a run",
-      "completed": false,
-      "id": 5
     }
   ]
 }
